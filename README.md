@@ -22,6 +22,6 @@ RUN <command to install your app>
 RUN echo "exec <command to start your app>" >> ~/start
 USER user
 ```
-
+>NOTE: make sure to add ` && tail -f /dev/null` to the end of your start command if your app runs in the background
 ---
 Visit the Docker Hub page for more information: https://hub.docker.com/r/outboundspade48/docker-singleapp
