@@ -24,4 +24,4 @@ USER user
 ```
 
 ---
-Visit the Docker Hub page for more information: (https://hub.docker.com/repository/docker/outboundspade48/docker-singleapp)
+Visit the Docker Hub page for more information: https://hub.docker.com/r/outboundspade48/docker-singleapp
