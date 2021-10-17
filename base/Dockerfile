@@ -34,7 +34,7 @@ RUN	/opt/VirtualGL/bin/vglserver_config -config
 # COPY ./fluxbox/init /home/user/.fluxbox/init
 # COPY ./fluxbox/apps /home/user/.fluxbox/apps
 
-EXPOSE 5901
+EXPOSE 5901/tcp
 
 RUN useradd -u 1234 -m -d /home/user -s /bin/bash user
 # RUN usermod -aG pulse,pulse-access user
@@ -50,7 +50,7 @@ RUN chown -R user /home/user
 
 #make sure to use --no-sandbox
 
-# RUN apt install gimp -y
+# RUN apt install htop -y
 
 USER user
 RUN touch ~/start && chmod u+x ~/start
