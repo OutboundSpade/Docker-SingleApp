@@ -57,4 +57,4 @@ RUN touch ~/start && chmod u+x ~/start
 # ENV VGL_LOGO=1
 #CMD /opt/TurboVNC/bin/vncserver && websockify -D --web=/usr/share/novnc/ 80 localhost:5901 && tail -f /dev/null
 # CMD /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 code --no-sandbox && echo "END OF DOCKER" && tail -f /dev/null
-CMD echo "NOTICE: ~/start will be run as the startup script" && /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 ~/start && echo "END OF DOCKER" && tail -f /dev/null
+CMD echo "NOTICE: ~/start will be run as the startup script" && /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 ~/start && echo "END OF DOCKER"
