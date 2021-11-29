@@ -36,10 +36,10 @@ RUN	/opt/VirtualGL/bin/vglserver_config -config
 
 EXPOSE 5901/tcp
 
-RUN useradd -u 1234 -m -d /home/user -s /bin/bash user
+RUN useradd -u 1000 -m -d /home/user -s /bin/bash user
 # RUN usermod -aG pulse,pulse-access user
-RUN chown -R user /home/user
-
+RUN chown -R 1000:1000 /home/user
+# RUN rm -rf /home/user/*
 
 
 #VSCODE:
@@ -52,9 +52,12 @@ RUN chown -R user /home/user
 
 # RUN apt install htop -y
 
+
+RUN touch /.start && chown 1000:1000 /.start
 USER user
-RUN touch ~/start && chmod u+x ~/start
+RUN chmod u+x /.start
+RUN echo "xsetroot  -cursor_name  left_ptr" >> /.start
 # ENV VGL_LOGO=1
 #CMD /opt/TurboVNC/bin/vncserver && websockify -D --web=/usr/share/novnc/ 80 localhost:5901 && tail -f /dev/null
 # CMD /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 code --no-sandbox && echo "END OF DOCKER" && tail -f /dev/null
-CMD echo "NOTICE: ~/start will be run as the startup script" && /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 ~/start && echo "END OF DOCKER"
+CMD echo "NOTICE: ~/start will be run as the startup script" && /opt/TurboVNC/bin/vncserver -wm ratpoison && xset -dpms s off && pulseaudio --start && vglrun -d :1 /.start && echo "END OF DOCKER"

@@ -1,4 +1,4 @@
 FROM outboundspade48/docker-singleapp:base
 USER root
-RUN apt install gimp -y && echo "exec gimp" >> /.start
+RUN apt install -y gedit && echo "exec gedit" >> /.start
 USER user
